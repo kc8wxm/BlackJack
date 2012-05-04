@@ -1,0 +1,15 @@
+Premise of the Game
+
+The basic premise of the game is that you want to have a hand value that is closer to 21 than that of the dealer, without going over 21. Other players at the table are of no concern. Your hand is strictly played out against the hand of the dealer. The rules of play for the dealer are strictly dictated, leaving no decisions up to the dealer. Therefore, there is not a problem with the dealer or any of the other players at the table seeing the cards in your hand. Indeed, if you're playing at a shoe game, the player cards are all dealt face up. In any event, when you're just learning to play, don't hesitate to show the dealer or other players your cards and ask questions.
+
+Values of the Cards
+
+In blackjack, the cards are valued as follows:
+
+An Ace can count as either 1 or 11, as explained below.
+The cards from 2 through 9 are valued at their face value.
+The 10, Jack, Queen, and King are all valued at 10.
+The suits of the cards do not have any meaning in the game. The value of a hand is simply the sum of the point counts of each card in the hand. For example, a hand containing (5,7,9) has the value of 21. The Ace can be counted as either 1 or 11. You need not specify which value the Ace has. It's assumed to always have the value that makes the best hand. An example will illustrate: Suppose that you have the beginning hand (Ace, 6). This hand can be either 7 or 17. If you stop there, it will be 17. Let's assume that you draw another card to the hand and now have (Ace, 6, 3). Your total hand is now 20, counting the Ace as 11. Let's backtrack and assume that you had instead drawn a third card which was an 8. The hand is now (Ace, 6, 8) which totals 15. Notice that now the Ace must be counted as only 1 to avoid going over 21.
+
+A hand that contains an Ace is called a "soft" total if the Ace can be counted as either 1 or 11 without the total going over 21. For example (Ace, 6) is a soft 17. The description stems from the fact that the player can always draw another card to a soft total with no danger of "busting" by going over 21. The hand (Ace,6,10) on the other hand is a "hard" 17, since now the Ace must be counted as only 1, again because counting it as 11 would make the hand go over 21.
+
