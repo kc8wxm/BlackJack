@@ -24,6 +24,7 @@ public class Card
 
     public Card(int value, Suit suit) {
         this.setValue(value);
+        this.suit = suit;
     }
 
     /**
@@ -119,7 +120,7 @@ public class Card
     @Override
     public String toString() {
         return new StringBuilder()
-            .append(getValue()).append(" of ").append(getSuit())
+            .append(getValue()).append(" of ").append(getSuit().toString())
             .toString();
     }
 }

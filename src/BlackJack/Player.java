@@ -1,39 +1,35 @@
 package BlackJack;
 
-import java.util.ArrayList;
-
 /**
  * Player class for the Five Card Stud Game
  *
  * @author Steve Sutton, <ssutton@student.ncmich.edu>
- * @version 0.1 (04/16/2012)
+ * @version 0.1 (05/05/2012)
  */
 public class Player
 {
     private String name;
-    private int cash;
-    private ArrayList<Card> hand;
+    private Hand hand;
+    private boolean bust;
+
+    /**
+     * Creates Object of class Player
+     */
+    public Player() {
+        name = "";
+        hand = new Hand();
+        bust = false;
+    }
 
     /**
      * Creates Object of class Player
      *
      * @param name players name
-     * @param hand players hand
      */
-    public Player(String name, int cash)
-    {
+    public Player(String name) {
         this.name = name;
-        this.cash = cash;
-        hand = new ArrayList<Card>();
-    }
-
-    /**
-     * Returns the Player's Hand
-     *
-     * @return
-     */
-    public ArrayList<Card> getHand() {
-        return hand;
+        hand = new Hand();
+        bust = false;
     }
 
     /**
@@ -42,7 +38,7 @@ public class Player
      * @param card
      */
     public void addCard(Card card) {
-        hand.add(card);
+        hand.addCard(card);
     }
 
     /**
@@ -64,23 +60,28 @@ public class Player
     }
 
     /**
-     * Returns the amount of cash the player has
-     *
-     * @return the cash
+     * @return the bust
      */
-    public int getCash() {
-        return cash;
+    public boolean isBust() {
+        return bust;
     }
 
     /**
-     * Set the amount of cash a player has
-     *
-     * @param cash the cash to set
+     * @param bust the bust to set
      */
-    public void setCash(int cash) {
-        this.cash = cash;
+    public void setBust(boolean bust) {
+        this.bust = bust;
     }
-    
+
+    /**
+     * Return the value of the cards in the hand
+     *
+     * @return
+     */
+    public int getHandValue() {
+        return hand.getValue();
+    }
+
     /**
      * Return the Player's name and his hand
      *
@@ -91,9 +92,9 @@ public class Player
     {
         return new StringBuilder()
             .append(name)
-            .append("\n")
-            .append(cash)
-            .append("\n")
+            .append(": ")
+            .append(hand.getValue())
+            .append(hand.toString())
             .toString();
     }
 

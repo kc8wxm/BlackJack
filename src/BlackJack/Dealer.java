@@ -1,25 +1,30 @@
 package BlackJack;
 
-import java.util.ArrayList;
-
 /**
+ * Dealer for the Game has a hand and
+ * will stay on all values 17 and above
  *
  * @author Steve Sutton, <ssutton@student.ncmich.edu>
+ * @version 0.1 (05/05/2012)
  */
-public class Dealer
+public class Dealer extends Player
 {
-    private ArrayList<Card> hand;
     private Deck deck;
 
+    /**
+     * Creates objects for Dealer
+     */
     public Dealer() {
-        hand = new ArrayList<Card>();
+        super();
+        setName("Dealer");
         deck = new Deck();
     }
 
-    public void addCard(Card card) {
-        hand.add(card);
-    }
-
+    /**
+     * Returns the Card from the deck
+     *
+     * @return card
+     */
     public Card dealCard() {
         return deck.dealCard();
     }

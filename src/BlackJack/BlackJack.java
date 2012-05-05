@@ -10,24 +10,30 @@ import java.util.Scanner;
  * Black Jack Card Game
  *
  * @author Steve Sutton, <ssutton@student.ncmich.edu>
- * @version 0.1 (04/29/2012)
+ * @version 0.1 (05/05/2012)
  */
 public class BlackJack extends CardGames
 {
+    private CommandProcessor processor;
+    private Player currentPlayer;
     private File fileIn;
     private Dealer dealer;
     private ArrayList<Player> players;
 
-    private final int INPUT_PLAYER = 0, INPUT_CASH = 1;
+    private final int INPUT_PLAYER = 0;
 
     /**
      * Card Game of Five Card Stud
      */
     public BlackJack()
     {
+        processor = new CommandProcessor();
         dealer = new Dealer();
         players = new ArrayList<Player>();
         readInputFile();
+        players.add(dealer);
+        currentPlayer = players.get(0);
+        play();
     }
 
     /**
@@ -68,36 +74,66 @@ public class BlackJack extends CardGames
     private void createPlayer(String[] data)
     {
         Deck deckOfCards = getDeckOfCards();
-        int amount = Integer.parseInt(data[INPUT_CASH]);
-        players.add(new Player(data[INPUT_PLAYER], amount));
+        players.add(new Player(data[INPUT_PLAYER]));
     }
 
     /**
      * Deals two cards to the players and two to dealer
      *
      */
-    public void dealAll() {
+    private void dealAll() {
         for(Player player : players) {
             for (int cardCount = 1; cardCount <= 2; cardCount++) {
                 player.addCard(dealer.dealCard());
             }
         }
-        for (int cardCount = 1; cardCount <= 2; cardCount++) {
-            dealer.addCard(dealer.dealCard());
+    }
+
+    private void showCards() {
+        for(Player player : players) {
+            System.out.println(player.toString());
         }
     }
 
     /**
-     *
+     * Start the game
      */
-    public void hitPlayer(int index) {
+    private void play()
+    {
+        dealAll();
+        showCards();
 
+        // Enter the main command loop.  Here we repeatedly read commands and
+        // execute them until the game is over.
+        for(Player player : players) {
+            boolean turnEnd = false;
+            if (player instanceof Dealer) {
+                turnEnd = true;
+                while (dealer.getHandValue() < 17) {
+                    dealer.addCard(dealer.dealCard());
+                }
+                if (dealer.getHandValue() > 21) {
+                    dealer.setBust(true);
+                    System.out.println("Dealer Bust. You Win!");
+                }
+                else if (dealer.getHandValue() == 21) {
+                    System.out.println("Dealer has 21. You Lose!");
+                }
+                else {
+                    System.out.println(dealer.toString());
+                }
+            }
+            if (player.isBust()) {
+                turnEnd = true;
+            }
+            while(!turnEnd) {
+                turnEnd = processor.processCommandForPlayer(currentPlayer, dealer);
+                if (player.isBust()) {
+                    turnEnd = true;
+                }
+            }
+        }
+        showCards();
+        System.out.println("Thank you for playing.  Good bye.");
     }
-
-    /**
-     *
-     */
-    public void playerStay() {
-    }
-
 }
