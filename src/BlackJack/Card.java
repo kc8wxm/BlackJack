@@ -22,6 +22,11 @@ public class Card
         this.suit = suit;
     }
 
+    /**
+     * 
+     * @param value
+     * @param suit
+     */
     public Card(int value, Suit suit) {
         this.setValue(value);
         this.suit = suit;

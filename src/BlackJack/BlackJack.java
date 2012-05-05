@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author Steve Sutton, <ssutton@student.ncmich.edu>
  * @version 0.1 (05/05/2012)
  */
-public class BlackJack extends CardGames
+public class BlackJack
 {
     private CommandProcessor processor;
     private Player currentPlayer;
@@ -67,13 +67,12 @@ public class BlackJack extends CardGames
     }
 
     /**
-     * Create a player and deal him in (hand of cards)
+     * Create a player
      *
      * @param data
      */
     private void createPlayer(String[] data)
     {
-        Deck deckOfCards = getDeckOfCards();
         players.add(new Player(data[INPUT_PLAYER]));
     }
 
@@ -89,6 +88,9 @@ public class BlackJack extends CardGames
         }
     }
 
+    /**
+     * Show all cards from players and dealer
+     */
     private void showCards() {
         for(Player player : players) {
             System.out.println(player.toString());

@@ -7,7 +7,7 @@ package BlackJack;
  * @author Steve Sutton, <ssutton@student.ncmich.edu>
  * @version 0.1 (05/05/2012)
  */
-public class Dealer extends Player
+public class Dealer extends Player implements DealerInterface
 {
     private Deck deck;
 
@@ -25,6 +25,7 @@ public class Dealer extends Player
      *
      * @return card
      */
+    @Override
     public Card dealCard() {
         return deck.dealCard();
     }
