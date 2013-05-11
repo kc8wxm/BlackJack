@@ -52,7 +52,7 @@ public class BlackJack
     private void readInputFile()
     {
         try {
-            fileIn = new File("/Users/steve/Development/BlackJack/src/" +
+            fileIn = new File("/Users/steve/Dropbox/CIS225/BlackJack/src/" +
                 "BlackJack/input.csv");
             Scanner fScanner = new Scanner(new FileReader(fileIn));
             while(fScanner.hasNextLine()) {
